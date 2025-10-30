@@ -42,29 +42,6 @@ form.addEventListener("submit", (e) => {
   });
   payment.classList.remove("is-invalid");
 
-  /*
-  cardNumber.classList.remove("is-invalid"); //verificar después
-  cardNumber.classList.remove("bg-error");
-  cvcNumber.classList.remove("is-invalid");
-  cvcNumber.classList.remove("bg-error");
-  amount.classList.remove("is-invalid");
-  amount.classList.remove("bg-error");
-  fName.classList.remove("is-invalid");
-  fName.classList.remove("bg-error");
-  lastName.classList.remove("is-invalid");
-  lastName.classList.remove("bg-error");
-  city.classList.remove("bg-error");
-  city.classList.remove("is-invalid");
-  state.classList.remove("bg-error");
-  state.classList.remove("is-invalid");
-  postalCode.classList.remove("bg-error");
-  postalCode.classList.remove("is-invalid");
-  payment.classList.remove("bg-error");
-  payment.classList.remove("is-invalid");
-  message.classList.remove("bg-error");
-  message.classList.remove("is-invalid");
-  */
-
   if (cardNumber.value.trim() === "" || cardNumber.value.trim().length !== 16) {
     cardNumber.classList.add("is-invalid");
     cardNumber.classList.add("bg-error");
@@ -144,3 +121,11 @@ form.addEventListener("submit", (e) => {
     cvcNumber.classList.remove("is-invalid", "bg-error");
   }
 });
+
+
+
+
+
+
+
+
