@@ -1,5 +1,23 @@
-@import "bootstrap/dist/css/bootstrap.min.css";
+/* Quita las flechas en Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
-body{
-    background: white;
+/* Quita las flechas en Firefox */
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+  appearance: textfield;
+}
+
+.bg-error {
+  background-color: #f8d7da;
+}
+
+/* Evitar que se pinte el contenedor de tarjetas */
+#payment-type.is-invalid {
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  background-color: transparent;
 }

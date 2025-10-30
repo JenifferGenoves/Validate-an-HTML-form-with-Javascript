@@ -1,35 +1,138 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" href="./assets/img/4geeks.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello Rigo with Vanilla.js</title>
 
-    <!-- Fontawesome is our recomended library for icons -->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-      crossorigin="anonymous"
-    />
-  </head>
-  <body>
-    <!-- Write your HTML code here, you can delete everything withing the body tags -->
-    <div class="container-fluid text-center">
-      <h1 class="mt-5">Hello Rigo!</h1>
-      <img src="./assets/img/rigo-baby.jpg" />
-      <p class="alert alert-warning mt-4">
-        If this text is <b>not</b> centered and <b>yellow</b>, you probably have
-        an error
-      </p>
-      <div class="fixed-bottom p-4">
-        Made with ❤️ by
-        <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
-      </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Form with Bootstrap</title>
+</head>
+
+<body>
+    <div class="container mt-4"> <!--Agregar márgenes y centar contenido-->
+        <div class="card"> <!--Borde gris y fondo blanco-->
+            <div class="card-header fs-4 fw-bold">
+                Payment form example
+            </div>
+            <div class="card-body">
+                <div class="alert alert-danger d-none" role="alert" id="globalError">
+                    Some fields are missing
+                </div>
+                <form action="" method="POST" id="paymentForm">
+                    <!--Campos del formulario-->
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="cardNumber" class="form-label">Card #</label>
+                            <input type="text" class="form-control" id="cardNumber" placeholder="XXXXXXXXXXXXXXXX" maxlength="16"
+                            >
+                        </div>
+                        <div class="col-md-3">
+                            <label for="cvc" class="form-label">CVC #</label>
+                            <input type="text" class="form-control" id="cvc" placeholder="000" 
+                                maxlength="3">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="amount" class="form-label">Amount</label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input type="number" class="form-control" id="amount" placeholder="Amount" min="1" 
+                                    >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="firstName">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="lastName">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="city" class="form-label">City</label>
+                            <input type="text" class="form-control" id="city">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="state" class="form-label">State</label>
+                            <select id="state" class="form-select">
+                                <option value="">Pick a State</option>
+                                <option>California</option>
+                                <option>New York</option>
+                                <option>Texas</option>
+                                <option>Florida</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="postalCode" class="form-label">Postal Code</label>
+                            <input type="text" class="form-control" id="postalCode" placeholder="ZIP" pattern="[0-9]{5}"
+                                >
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <p class="form-label mb-2">We accept:</p>
+                            <!--Arreglo de Bg-->
+                            <div class="d-flex w-100">
+                                <div class="bg-secondary rounded text-white px-2 py-2 d-flex justify-content-start" id="payment-type">
+                                    <div class="d-flex justify-content-evenly gap-4">
+                                        <div class="form-check mb-0 d-flex align-items-center">
+                                            <input class="form-check-input me-1" type="radio" name="cardType"
+                                                id="mastercard" style="scale: 0.6;">
+                                            <label class="form-check-label mt-1" for="mastercard">
+                                                <i class="fa-brands fa-cc-mastercard fs-3"></i>
+                                            </label>
+                                        </div>
+                                        <div class="form-check mb-0 d-flex align-items-center">
+                                            <input class="form-check-input me-1" type="radio" name="cardType" id="visa"
+                                                style="scale: 0.6;">
+                                            <label class="form-check-label mt-1" for="visa">
+                                                <i class="fa-brands fa-cc-visa fs-3"></i>
+                                            </label>
+                                        </div>
+                                        <div class="form-check mb-0 d-flex align-items-center">
+                                            <input class="form-check-input me-1" type="radio" name="cardType" id="cc-amex"
+                                                style="scale: 0.6;">
+                                            <label class="form-check-label mt-1" for="cc-amex">
+                                                <i class="fa-brands fa-cc-amex fs-3"></i>
+                                            </label>
+                                        </div>
+                                        <div class="form-check mb-0 d-flex align-items-center">
+                                            <input class="form-check-input me-1" type="radio" name="cardType" id="paypal"
+                                                style="scale: 0.6;">
+                                            <label class="form-check-label mt-1" for="paypal">
+                                                <i class="fa-brands fa-cc-paypal fs-3"></i>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Text Area-->
+                        <div class="col-md-6">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" rows="3"></textarea>
+                            <p><small class="text-secondary">Add any notes here</p></small>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <div class="d-flex justify-content-end gap-2">
+                    <button type="reset" class="btn btn-secondary" form="paymentForm">Cancel</button>
+                    <button type="submit" class="btn btn-primary" form="paymentForm">Send</button>
+                </div>
+            </div>
+        </div>
     </div>
+    <script src="app.js"></script>
+</body>
 
-    <!-- Do not delete this script tag, this is what connects your HTML with the Javascript code -->
-    <script type="module" src="/app.js"></script>
-  </body>
+
 </html>
